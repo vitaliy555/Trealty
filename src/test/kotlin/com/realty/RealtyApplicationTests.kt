@@ -12,5 +12,4 @@ class RealtyApplicationTests {
 	@Test
 	fun contextLoads() {
 	}
-
 }

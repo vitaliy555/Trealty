@@ -12,14 +12,4 @@ import org.springframework.web.client.RestTemplate
 @Component
 class HTMLParser {
 
-    @Autowired
-    lateinit var rest: RestTemplate
-
-    fun getLocations(resourceUrl : String): Map<String, Any> {
-
-        var fullHtmlDom: String = rest.getForObject(resourceUrl,String::class.java)
-
-        var document: Document = Jsoup.parse(fullHtmlDom)
-        return mapOf("test" to "Any")
-    }
 }
