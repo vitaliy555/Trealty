@@ -1,5 +1,6 @@
 package com.realty
 
+import org.slf4j.LoggerFactory
 import java.util.*
 
 const val ALPHABET = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
@@ -11,3 +12,5 @@ fun generateLocationPrefix(): List<String> {
             generatedPrefix.add("$letter1$letter2")
     return generatedPrefix
 }
+
+inline fun <reified T : Any> loggerFor() = LoggerFactory.getLogger(T::class.java)

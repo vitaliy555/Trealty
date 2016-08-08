@@ -9,15 +9,18 @@ import java.util.*
 
 @Component
 class LocationFacade {
+
     @Autowired
     private lateinit var locationService: LocationService
 
+
     fun updateLocations(): List<LocationDistrict> {
-        var districts = ArrayList<LocationDistrict>()
+        var locationDistricts: MutableList<LocationDistrict> = ArrayList()
         for (prefix in generateLocationPrefix()) {
-            var locationResponce = locationService.searchLocations(prefix)
-            districts.addAll(locationResponce.data)
+            var locationResponse = locationService.searchLocations(prefix)
+            locationDistricts.addAll(locationResponse.data)
         }
-        return districts
+        locationService.updateLocations(locationDistricts)
+        return locationDistricts
     }
 }
